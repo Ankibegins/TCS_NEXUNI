@@ -80,8 +80,8 @@ export default function Services() {
 
             // 2. Fetch available services, excluding our own
             const serviceUrl = user?._id 
-                ? `http://https://tcs-nexuni.onrender.com/api/services?excludeSeller=${user._id}`
-                : 'http://https://tcs-nexuni.onrender.com/api/services';
+                ? `https://tcs-nexuni.onrender.com/api/services?excludeSeller=${user._id}`
+                : 'https://tcs-nexuni.onrender.com/api/services';
             
             const sRes = await fetch(serviceUrl);
             const sData = await sRes.json();
@@ -120,7 +120,7 @@ export default function Services() {
 
             // 3. Fetch my orders if logged in
             if (user?.token) {
-                const oRes = await fetch('http://https://tcs-nexuni.onrender.com/api/orders/my-orders', {
+                const oRes = await fetch('https://tcs-nexuni.onrender.com/api/orders/my-orders', {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 const oData = await oRes.json();
@@ -148,7 +148,7 @@ export default function Services() {
             return;
         }
         try {
-            const res = await fetch('http://https://tcs-nexuni.onrender.com/api/orders', {
+            const res = await fetch('https://tcs-nexuni.onrender.com/api/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export default function Services() {
             if (data.success) {
                 apiCache.clear(); // invalidate cache on order create
                 // Refresh orders
-                const oRes = await fetch('http://https://tcs-nexuni.onrender.com/api/orders/my-orders', {
+                const oRes = await fetch('https://tcs-nexuni.onrender.com/api/orders/my-orders', {
                     headers: { Authorization: `Bearer ${user.token}` }
                 });
                 const oData = await oRes.json();

@@ -97,7 +97,7 @@ export default function MyFreelanceService() {
             if (!silent && !cachedServices) setIsLoading(true);
 
             // Fetch My Services
-            const sRes = await fetch('http://https://tcs-nexuni.onrender.com/api/services/me', {
+            const sRes = await fetch('https://tcs-nexuni.onrender.com/api/services/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const sData = await sRes.json();
@@ -107,7 +107,7 @@ export default function MyFreelanceService() {
             }
 
             // Fetch My Orders (as Seller)
-            const oRes = await fetch('http://https://tcs-nexuni.onrender.com/api/orders/seller-orders', {
+            const oRes = await fetch('https://tcs-nexuni.onrender.com/api/orders/seller-orders', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const oData = await oRes.json();
@@ -117,7 +117,7 @@ export default function MyFreelanceService() {
             }
 
             // Fetch Profile Stats
-            const pRes = await fetch('http://https://tcs-nexuni.onrender.com/api/auth/me', {
+            const pRes = await fetch('https://tcs-nexuni.onrender.com/api/auth/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const pData = await pRes.json();
@@ -139,7 +139,7 @@ export default function MyFreelanceService() {
             if (!userStr) return;
             const { token } = JSON.parse(userStr);
 
-            const res = await fetch(`http://https://tcs-nexuni.onrender.com/api/orders/${orderId}/status`, {
+            const res = await fetch(`https://tcs-nexuni.onrender.com/api/orders/${orderId}/status`, {
                 method: 'PUT',
                 headers: { 
                     'Content-Type': 'application/json',
@@ -190,7 +190,7 @@ export default function MyFreelanceService() {
         if (!window.confirm('Are you sure you want to delete this service?')) return;
         try {
             const { token } = JSON.parse(localStorage.getItem('user') || '{}');
-            const res = await fetch(`http://https://tcs-nexuni.onrender.com/api/services/${serviceId}`, {
+            const res = await fetch(`https://tcs-nexuni.onrender.com/api/services/${serviceId}`, {
                 method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -228,7 +228,7 @@ export default function MyFreelanceService() {
                 tags, status: 'Published'
             };
             const method = editingId ? 'PUT' : 'POST';
-            const url = editingId ? `http://https://tcs-nexuni.onrender.com/api/services/${editingId}` : 'http://https://tcs-nexuni.onrender.com/api/services';
+            const url = editingId ? `https://tcs-nexuni.onrender.com/api/services/${editingId}` : 'https://tcs-nexuni.onrender.com/api/services';
             const res = await fetch(url, {
                 method, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify(payload)
