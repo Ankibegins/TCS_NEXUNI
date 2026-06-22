@@ -39,8 +39,8 @@ export default function Login() {
 
         try {
             const url = isLoginView
-                ? 'http://localhost:5000/api/auth/login'
-                : 'http://localhost:5000/api/auth/register';
+                ? 'http://https://tcs-nexuni.onrender.com/api/auth/login'
+                : 'http://https://tcs-nexuni.onrender.com/api/auth/register';
 
             // If logging in, we only send email and password. If registering, we send all data.
             const payload = isLoginView 
